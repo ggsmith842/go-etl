@@ -1,6 +1,5 @@
 # go-etl
-A simple golang program that implements basic ETL capabilities.
-
+A series of ETL examples written in Golang.
 
 ## Sources
 Sources are a data's origin. Pipelines in go-etl always have a source as the starting point. Once data is in the pipeline, you can manipulate it using transformations like filter, sort, and normalize.
