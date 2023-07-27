@@ -2,18 +2,13 @@ package sources
 
 import (
 	"encoding/csv"
-	"fmt"
+	// "goetl/data"
+	// d "goetl/data"
 	"log"
 	"os"
-	"strconv"
 )
 
-type Record struct {
-	DATE         string
-	MORTGAGE30US float64
-}
-
-func CsvSrc(dir string) []Record {
+func CsvSrc(dir string) [][]string {
 	file, err := os.Open(dir)
 	if err != nil {
 		log.Fatal(err)
@@ -29,30 +24,29 @@ func CsvSrc(dir string) []Record {
 		log.Fatal(err)
 	}
 
-	rows := make([]Record, 0, len(data))
+	// rows := make([]d.Record, 0, len(data))
 
-	//loop through rows and store in map
-	for i, row := range data {
-		if i == 0 {
-			continue
-		}
+	// //loop through rows and store in map
+	// for i, row := range data {
+	// 	if i == 0 {
+	// 		continue
+	// 	}
 
-		rate, err := strconv.ParseFloat(row[1], 64)
-		if err != nil {
-			fmt.Println(err)
-			return nil
-		}
+	// 	rate, err := strconv.ParseFloat(row[1], 64)
+	// 	if err != nil {
+	// 		fmt.Println(err)
+	// 		return nil
+	// 	}
 
-		record := Record{
-			DATE:         row[0],
-			MORTGAGE30US: rate,
-		}
+	// 	record := d.Record{
+	// 		DATE:         row[0],
+	// 		MORTGAGE30US: rate,
+	// 	}
 
-		rows = append(rows, record)
-		fmt.Println(record.DATE, record.MORTGAGE30US)
+	// 	rows = append(rows, record)
 
-	}
+	// }
 
-	return rows
+	return data
 
 }
