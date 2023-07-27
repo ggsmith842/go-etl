@@ -13,7 +13,7 @@ type Record struct {
 	MORTGAGE30US float64
 }
 
-func CsvSrc(dir string) {
+func CsvSrc(dir string) []Record {
 	file, err := os.Open(dir)
 	if err != nil {
 		log.Fatal(err)
@@ -29,6 +29,9 @@ func CsvSrc(dir string) {
 		log.Fatal(err)
 	}
 
+	rows := make([]Record, 0, len(data))
+
+	//loop through rows and store in map
 	for i, row := range data {
 		if i == 0 {
 			continue
@@ -37,13 +40,19 @@ func CsvSrc(dir string) {
 		rate, err := strconv.ParseFloat(row[1], 64)
 		if err != nil {
 			fmt.Println(err)
-			return
+			return nil
 		}
+
 		record := Record{
 			DATE:         row[0],
 			MORTGAGE30US: rate,
 		}
+
+		rows = append(rows, record)
 		fmt.Println(record.DATE, record.MORTGAGE30US)
+
 	}
+
+	return rows
 
 }
