@@ -1,3 +1,5 @@
+[![Go](https://github.com/ggsmith842/go-etl-examples/actions/workflows/go-lint.yml/badge.svg)](https://github.com/ggsmith842/go-etl-examples/actions/workflows/go-lint.yml)
+
 # go-etl
 A series of ETL examples written in Golang.
 
